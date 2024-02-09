@@ -1,0 +1,175 @@
+.slider {
+    position: relative;
+    width: 1200px;
+    height: 300px;
+
+
+    border: 2px solid black;
+
+    &__window {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &__inner {
+        height: 100%;
+        display: flex;
+        transition: .3s all;
+    }
+
+    &__slide {
+
+        display: grid;
+        place-items: center;
+    }
+
+    &__button {
+        position: absolute;
+        top: 50%;
+        border-radius: 50%;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 2px solid white;
+        border-radius: 50%;
+        background-color: #bbbbbb;
+
+        &:hover {
+            background-color: #999999;
+        }
+
+        &:active {
+            background-color: #4c4c4c;
+        }
+
+        cursor: pointer;
+
+        svg {
+
+            width: 20px;
+            height: 20px;
+        }
+
+        &.prev {
+            left: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        &.next {
+            right: 0px;
+            transform: translate(50%, -50%);
+        }
+    }
+
+
+    &__dots {
+        position: absolute;
+        left: 50%;
+        bottom: -50px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+
+    &__dot {
+        width: 30px;
+        height: 30px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background-color: #bbbbbb;
+
+        color: white;
+        transition: .3s all;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: #999999;
+        }
+
+        &.active {
+            background-color: #4c4c4c;
+        }
+    }
+}
+
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-color: rgba(0, 0, 0, 0.705);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+        z-index: 10;
+    }
+
+    &__close {
+        position: absolute;
+        top: 5vh;
+        right: 5vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 2px solid white;
+        border-radius: 50%;
+        background-color: #bbbbbb;
+
+        padding: 5px;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: #999999;
+        }
+
+        &.active {
+            background-color: #4c4c4c;
+        }
+
+        svg {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &__content {
+        aspect-ratio: 1 / 1;
+        height: 70vh;
+
+    }
+
+    .video {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__dots {
+        margin-top: 30px;
+        display: flex;
+        gap: 10px;
+    }
+
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: .3s all;
+
+
+}
